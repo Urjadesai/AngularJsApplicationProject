@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.angularjs.org/1.1.2/angular.min.js"></script>
+    <script type="text/javascript">
+    var myApp = angular.module('myApp', []);
+
+    myApp.controller('MainCtrl', ['$scope', function($scope){
+        $scope.boxNameList=['Box1','Box2','Box3'];
+        $scope.myBoxes={
+              Box1: "redBackground",
+              Box2: "blackBackground",
+              Box3: "blackBackground"
+        }
+    }]);
+    </script>
+    <style type="text/css">
+    .redBackground{
+       background-color: red;
+    }
+
+    .blackBackground{
+      background-color: black;
+    }
+    </style>
+</head>
+<body ng-controller="MainCtrl">
+    <div ng-repeat="name in boxNameList">
+        <div ng-class="myBoxes[name]">Box1</div>
+    </div>
+</body>
+</html>
